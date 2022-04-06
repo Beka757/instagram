@@ -3,7 +3,9 @@
 {% block content %}
     <div class="card post">
         <div class="card-body">
-            <a class="profile" href="{% url 'detail_user_view' post.user.pk %}"><img class="user_image" src="{{ post.user.profile.avatar.url }}" alt="">
+            <a class="profile" href="{% url 'detail_user_view' post.user.pk %}"><img class="user_image"
+                                                                                     src="{{ post.user.profile.avatar.url }}"
+                                                                                     alt="">
                 <h5 class="card-title">{{ post.user.username }}</h5></a>
         </div>
         <img class="post_image" src="{{ post.image.url }}" class="card-img-bottom" alt="...">
@@ -12,22 +14,29 @@
                 <form action="{% url 'like' post.pk %}" method="POST">
                     {% csrf_token %}
                     {% if post in request.user.profile.likes.all %}
-                        <button class="button" disabled type="submit"><img class="like" src="{% static "image/like_red.png" %}" alt="..."></button>
+                        <button class="button" disabled type="submit"><img class="like"
+                                                                           src="{% static "image/like_red.png" %}"
+                                                                           alt="..."></button>
                     {% else %}
-                        <button class="button" type="submit"><img class="like" src="{% static "image/like_white.png" %}" alt="..."></button>
+                        <button class="button" type="submit"><img class="like" src="{% static "image/like_white.png" %}"
+                                                                  alt="..."></button>
                     {% endif %}
                 </form>
-               <p>{{ post.profile_like.count|default:0 }} отметок "Нравится"</p>
+                <p>{{ post.profile_like.count|default:0 }} отметок "Нравится"</p>
             </div>
             <h5 class="card-title"></h5>
-            <p class="card-text"><a class="user_pr" href="{% url 'detail_user_view' post.user.pk %}">{{ post.user.username }}</a> {{ post.text }}</p>
+            <p class="card-text"><a class="user_pr"
+                                    href="{% url 'detail_user_view' post.user.pk %}">{{ post.user.username }}</a> {{ post.text }}
+            </p>
         </div>
     </div>
-    <div style="background-color: white; width: 1039px; height: 60px; margin-left: 128px; border-radius: 4px" class="border">
+    <div style="background-color: white; width: 1039px; height: 60px; margin-left: 128px; border-radius: 4px"
+         class="border">
         <div>
             <form action="{% url 'create_comment' post.pk %}" method="POST">
                 {% csrf_token %}
-                <input name="text" id="text" type="text" style="height: 58px; width: 800px; border: none" placeholder="Добавьте комментарий">
+                <input name="text" id="text" type="text" style="height: 58px; width: 800px; border: none"
+                       placeholder="Добавьте комментарий">
                 <button class="btn btn-primary" type="submit">Опубликовать</button>
             </form>
         </div>
@@ -35,11 +44,13 @@
     <br>
     <br>
     <h4 style="text-align: center">Комментарии</h4>
+    <br>
     {% for comment in post.comment_post.all %}
-        <div style="text-align: center">
-            {{ comment.text }}
+        <div style="display: flex; justify-content: center">
+            <p>{{ comment.user.get_full_name|default:comment.user }}</p>
+            <p style="margin-left: 10px">{{ comment.text }}</p>
         </div>
-        {% empty %}
+    {% empty %}
         <br>
         <br>
         <h4 style="display: flex; justify-content: center; color: gray">Комментарии остуствуют</h4>
