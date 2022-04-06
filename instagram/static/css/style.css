@@ -1,0 +1,52 @@
+.form_all {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+.title {
+    text-align: center;
+}
+.photo {
+    margin-right: 20px;
+}
+.post {
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+.post_image {
+    height: 500px;
+    width: 100%;
+}
+.profile {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+.user_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.card-title {
+    margin-left: 15px;
+    margin-top: 6px;
+}
+footer {
+    height: 200px;
+}
+.user_pr {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.button {
+    border: none;
+    background-color: white;
+    padding: 0;
+}
+.like {
+    background-color: white;
+    width: 30px;
+    margin-bottom: 5px;
+}

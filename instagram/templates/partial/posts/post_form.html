@@ -1,0 +1,20 @@
+{% csrf_token %}
+<div class="mb-3">
+    <label  for="text" class="form-label">Текст</label>
+    <textarea name="text" id="text"
+              class="form-control first {% if form.text.errors %}is-invalid{% endif %}"
+              placeholder="Введите текст">{{ form.text.value|default:'' }}</textarea>
+    {% for error in form.text.errors %}
+        <p id="description" class="invalid-feedback">{{ error }}</p>
+    {% endfor %}
+</div>
+<div class="form-group" style="padding: 5px">
+    <label for="photos" class="form-label photo">Фото</label>
+    {% if form.image.value.url %}
+        <img  src="{{ form.image.value.url }}" alt="" style="width: 20%">
+    {% endif %}
+    <input type="file" name='image' id="photos" value="{{ form.image.value|default:'' }}">
+</div>
+<div class="submit">
+    <button type="submit" class="btn btn-danger">{% if is_edit %} Изменить {% else %} Создать {% endif %}</button>
+</div>

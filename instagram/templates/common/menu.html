@@ -1,0 +1,37 @@
+{% load static %}
+<div style="display: flex; justify-content: space-around; padding: 15px 0; background-color: white">
+    <div>
+        <img style="width: 50px;" src="{% static "image/logo.png" %}" alt="logo"/>
+        <a href="{% url 'home_page' %}"><img style="width: 90px;"
+                                             src="{% static "image/inst.png" %}"
+                                             alt="logo"/></a>
+    </div>
+    <div>
+        <form action="{% url 'search_profile' %}" class="d-flex" method="GET">
+            <input value="{{ form.search.value|default:'' }}" name="search" class="form-control me-2"
+                   style="font-family: FontAwesome; font-size: 18px; padding: 0 50px; margin-top: 10px; text-align: center"
+                   type="search" placeholder="&#xf002 Поиск" aria-label="Search">
+        </form>
+    </div>
+    <div>
+        {% if not request.user.is_authenticated %}
+            <a aria-current="page"
+               href="{% url 'login_view' %}"><img style="width: 25px; margin-top: 10px"
+                                                  src="{% static "image/user.png" %}"
+                                                  alt="logo"/></a>
+        {% else %}
+            <a aria-current="page"
+               href="{% url 'create_post' %}"><img style="width: 25px; margin-top: 10px; margin-right: 40px"
+                                                                        src="{% static "image/new_post.png" %}"
+                                                                        alt="logo"/></a>
+            <a aria-current="page"
+               href="{% url 'detail_user_view' request.user.pk %}"><img style="width: 25px; margin-top: 10px"
+                                                                        src="{% static "image/user.png" %}"
+                                                                        alt="logo"/></a>
+            <a href="{% url 'logout_view' %}"><img style="width: 25px; padding-top: 9px;"
+                                                   src="{% static "image/exit.png" %}"
+                                                   alt="logo"/></a>
+        {% endif %}
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+<div class="d-flex flex-row align-items-center mb-4">
+    <div class="form-outline flex-fill mb-0">
+        <label class="form-label" for="avatar">Аватар</label>
+        {% if profile_form.avatar.value %}
+            <img src="{{ profile_form.avatar.value.url }}" style="width: 5%; margin-bottom: 10px" alt="">
+        {% else %}
+            <img src="../../../uploads/user_pics/default.png" style="width: 5%; margin-bottom: 10px" alt="">
+        {% endif %}
+        <input value="{{ profile_form.avatar.value|default:'' }}" name="avatar" type="file" id="avatar"
+               class="form-control"/>
+    </div>
+</div>
+
+<div class="d-flex flex-row align-items-center mb-4">
+    <div class="form-outline flex-fill mb-0">
+        <label class="form-label" for="phone_number">Номер телефона</label>
+        <input value="{{ profile_form.phone_number.value|default:'' }}" name="phone_number" type="tel" id="phone_number"
+               class="form-control"/>
+    </div>
+</div>
+
+<div class="d-flex flex-row align-items-center mb-4">
+    <div class="form-outline flex-fill mb-0">
+        <label class="form-label" for="phone_number">Пол</label>
+        <select name="gender" class="form-select" aria-label="gender">
+            {% for gender in genders %}
+                {% if gender.0 == profile_form.gender.value %}
+                    <option selected value="{{ gender.0 }}">{{ gender.1 }}</option>
+                {% else %}
+                    <option  value="{{ gender.0 }}">{{ gender.1 }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="d-flex flex-row align-items-center mb-4">
+    <div class="form-outline flex-fill mb-0">
+        <label for="user_information" class="form-label">Информация о пользователе</label>
+        <textarea name="user_information" class="form-control" id="user_information"
+                  rows="10">{{ profile_form.user_information.value|default:'' }}</textarea>
+    </div>
+</div>

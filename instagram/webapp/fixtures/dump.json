@@ -1,0 +1,184 @@
+[
+{
+  "model": "webapp.posts",
+  "pk": 1,
+  "fields": {
+    "text": "lama",
+    "user": 4,
+    "image": "post_pics/lama.jpg",
+    "created_at": "2022-03-10T10:05:02.941Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 2,
+  "fields": {
+    "text": "test",
+    "user": 3,
+    "image": "post_pics/pic.jpg",
+    "created_at": "2022-03-10T10:06:32.495Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 3,
+  "fields": {
+    "text": "test1",
+    "user": 3,
+    "image": "post_pics/IMG_20200118_232200_896.jpg",
+    "created_at": "2022-03-10T10:06:52.105Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 4,
+  "fields": {
+    "text": "car",
+    "user": 2,
+    "image": "post_pics/auto_0.jpeg",
+    "created_at": "2022-03-10T10:07:55.444Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 5,
+  "fields": {
+    "text": "car 2",
+    "user": 2,
+    "image": "post_pics/auto_1.jpeg",
+    "created_at": "2022-03-10T10:08:11.197Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 6,
+  "fields": {
+    "text": "car3",
+    "user": 2,
+    "image": "post_pics/auto_2.jpeg",
+    "created_at": "2022-03-10T10:08:25.857Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 7,
+  "fields": {
+    "text": "q",
+    "user": 1,
+    "image": "post_pics/159146400517861547.jpg",
+    "created_at": "2022-03-10T10:09:07.674Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 8,
+  "fields": {
+    "text": "w",
+    "user": 1,
+    "image": "post_pics/asd.jpg",
+    "created_at": "2022-03-10T10:09:16.674Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 9,
+  "fields": {
+    "text": "e",
+    "user": 1,
+    "image": "post_pics/auto_0_vNUJlIu.jpeg",
+    "created_at": "2022-03-10T10:09:27.350Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 10,
+  "fields": {
+    "text": "r",
+    "user": 1,
+    "image": "post_pics/auto_2_pFBqPyo.jpeg",
+    "created_at": "2022-03-10T10:09:39.482Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 11,
+  "fields": {
+    "text": "a",
+    "user": 1,
+    "image": "post_pics/default.png",
+    "created_at": "2022-03-10T10:09:55.935Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 12,
+  "fields": {
+    "text": "s",
+    "user": 1,
+    "image": "post_pics/IMG_20191012_205916.jpg",
+    "created_at": "2022-03-10T10:10:07.350Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 13,
+  "fields": {
+    "text": "s",
+    "user": 1,
+    "image": "post_pics/IMG_20191104_173935.jpg",
+    "created_at": "2022-03-10T10:10:23.674Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 14,
+  "fields": {
+    "text": "s",
+    "user": 1,
+    "image": "post_pics/pic_xnddgqI.jpg",
+    "created_at": "2022-03-10T10:10:37.289Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 15,
+  "fields": {
+    "text": "s",
+    "user": 1,
+    "image": "post_pics/lama_ZxFLmvg.jpg",
+    "created_at": "2022-03-10T10:10:53.141Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 16,
+  "fields": {
+    "text": "s",
+    "user": 1,
+    "image": "post_pics/IMG_20200104_150737.jpg",
+    "created_at": "2022-03-10T10:11:14.651Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 17,
+  "fields": {
+    "text": "",
+    "user": 1,
+    "image": "post_pics/IMG_20191105_120754.jpg",
+    "created_at": "2022-03-10T10:11:34.346Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 1,
+  "fields": {
+    "text": "lama",
+    "user": 4,
+    "date_publication": "2022-03-10T10:05:17.192Z",
+    "post": [
+      1
+    ]
+  }
+}
+]

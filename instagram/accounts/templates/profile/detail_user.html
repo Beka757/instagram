@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div style="background-color: #FAFAFA; display: flex; padding-top: 70px; justify-content: center;">
+        <div style="display: inline-block; border-radius: 50%; overflow: hidden; width: 200px; height: 200px">
+            {% if user_obj.profile.avatar %}
+                <img style="width: 100%; height: 100%; object-fit: cover" src="{{ user_obj.profile.avatar.url }}"
+                     alt="...">
+            {% endif %}
+        </div>
+        <div style="padding-left: 300px">
+            <div style="display: flex">
+                <div>
+                    <h2>{{ user_obj.username }}</h2>
+                </div>
+                <div style="padding-left: 50px">
+                    {% if request.user.id == user_obj.id %}
+                        <a class="btn btn-light border" href="{% url 'update_profile' %}"><b>Редактировать
+                            профиль</b></a>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            {% if request.user.pk == user %}
+                <div style="display: flex; width: 400px; justify-content: space-between">
+                    <p>{{ user_obj.user_post.count|default:0 }} публикаций</p>
+                    <p>{{ user_obj.subscribers.count|default:0 }} подписчиков</p>
+                    <p>Подписок {{ user_obj.profile.subscriptions.count|default:0 }}</p>
+                </div>
+            {% else %}
+                <div style="display: flex; width: 500px; justify-content: space-between">
+                    <p>{{ user_obj.user_post.count|default:0 }} публикаций</p>
+                    <p>{{ user_obj.subscribers.count|default:0 }} подписчиков</p>
+                    <p>Подписок {{ user_obj.profile.subscriptions.count|default:0 }}</p>
+                    <form action="{% url 'following' user_obj.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if user_obj in request.user.profile.subscriptions.all %}
+                            <button style="font-size: 10px" class="btn btn-primary disabled" type="submit">подписаться
+                            </button>
+                        {% else %}
+                            <button style="font-size: 10px" class="btn btn-primary" type="submit">подписаться</button>
+                        {% endif %}
+                    </form>
+                </div>
+            {% endif %}
+            <p>{{ user_obj.first_name|default:'' }}</p>
+            <div style="width: 600px">
+                <p>{{ user_obj.profile.user_information|linebreaksbr|default:'' }}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div style="display: flex; flex-wrap: wrap; padding-left: 90px">
+        {% for post in posts %}
+            <div class="card" style="width: 400px;">
+                <a href="{% url 'post_detail' post.pk %}"><img style="min-height: 600px" src="{{ post.image.url }}" class="card-img-top" alt="..."></a>
+            </div>
+        {% empty %}
+            <h1 style="display: flex; justify-content: center; color: gray">Публикации отсуствуют</h1>
+        {% endfor %}
+    </div>
+{% endblock %}

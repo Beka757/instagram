@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% for post in posts %}
+        <div class="card post" style="margin-top: 10px">
+            <div class="card-body">
+                <a class="profile" href="{% url 'detail_user_view' post.user.pk %}"><img class="user_image" src="{{ post.user.profile.avatar.url }}" alt="">
+                    <h5 class="card-title">{{ post.user.username }}</h5></a>
+            </div>
+            <a href="{% url 'post_detail' post.pk %}"><img class="post_image" src="{{ post.image.url }}" class="card-img-bottom" alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"><a class="user_pr" href="{% url 'detail_user_view' post.user.pk %}">{{ post.user.username }}</a> {{ post.text }}</p>
+            </div>
+            <p style="font-size: 14px; color: gray; padding-left: 16px">{{ post.created_at }}</p>
+        </div>
+    {% empty %}
+        <h1 style="display: flex; justify-content: center; color: gray">Публикации отсуствуют</h1>
+    {% endfor %}
+{% endblock %}
