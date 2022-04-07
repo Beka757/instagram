@@ -3,7 +3,7 @@
   "model": "webapp.posts",
   "pk": 1,
   "fields": {
-    "text": "lama",
+    "text": "lamanew",
     "user": 4,
     "image": "post_pics/lama.jpg",
     "created_at": "2022-03-10T10:05:02.941Z"
@@ -170,6 +170,176 @@
   }
 },
 {
+  "model": "webapp.posts",
+  "pk": 19,
+  "fields": {
+    "text": "bbbbbbbbbb",
+    "user": 1,
+    "image": "post_pics/images_O8zX01B.jpeg",
+    "created_at": "2022-04-06T09:48:16.981Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 20,
+  "fields": {
+    "text": "asd",
+    "user": 4,
+    "image": "post_pics/images_GpYbzy0.jpeg",
+    "created_at": "2022-04-06T16:57:39.724Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 21,
+  "fields": {
+    "text": "lead",
+    "user": 3,
+    "image": "post_pics/images_LEUufGo.jpeg",
+    "created_at": "2022-04-06T17:02:53.602Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 22,
+  "fields": {
+    "text": "lead",
+    "user": 1,
+    "image": "post_pics/images_QY2lieU.jpeg",
+    "created_at": "2022-04-06T17:03:08.349Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 23,
+  "fields": {
+    "text": "lead",
+    "user": 4,
+    "image": "post_pics/images_OYBbYED.jpeg",
+    "created_at": "2022-04-06T17:03:19.884Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 24,
+  "fields": {
+    "text": "lead",
+    "user": 4,
+    "image": "post_pics/images_sZNqihv.jpeg",
+    "created_at": "2022-04-06T17:03:24.093Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 25,
+  "fields": {
+    "text": "asdasd",
+    "user": 4,
+    "image": "post_pics/images_u2RxKZf.jpeg",
+    "created_at": "2022-04-06T17:03:25.129Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 26,
+  "fields": {
+    "text": "lead",
+    "user": 1,
+    "image": "post_pics/images_z9ZdMrT.jpeg",
+    "created_at": "2022-04-06T17:17:09.283Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 27,
+  "fields": {
+    "text": "lead",
+    "user": 1,
+    "image": "post_pics/images_RVITxJv.jpeg",
+    "created_at": "2022-04-06T17:17:10.275Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 28,
+  "fields": {
+    "text": "lead",
+    "user": 1,
+    "image": "post_pics/images_tEXTskc.jpeg",
+    "created_at": "2022-04-06T17:17:11.329Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 29,
+  "fields": {
+    "text": "asdasdasdasdas",
+    "user": 1,
+    "image": "post_pics/images_igGJFEl.jpeg",
+    "created_at": "2022-04-06T17:17:54.312Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 30,
+  "fields": {
+    "text": "asdasdasdasdas",
+    "user": 1,
+    "image": "post_pics/images_4Xu1Ysj.jpeg",
+    "created_at": "2022-04-06T17:17:54.886Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 32,
+  "fields": {
+    "text": "asdasdasdasdas",
+    "user": 1,
+    "image": "post_pics/images_sxNIWVg.jpeg",
+    "created_at": "2022-04-06T18:15:16.937Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 33,
+  "fields": {
+    "text": "asdasdasdasdas",
+    "user": 1,
+    "image": "post_pics/images_igLVY2S.jpeg",
+    "created_at": "2022-04-06T18:15:18.332Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 36,
+  "fields": {
+    "text": "dev",
+    "user": 4,
+    "image": "post_pics/images_v9ppbLR.jpeg",
+    "created_at": "2022-04-07T06:43:13.352Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 37,
+  "fields": {
+    "text": "dev",
+    "user": 4,
+    "image": "post_pics/images_QX6Ryko.jpeg",
+    "created_at": "2022-04-07T06:43:15.696Z"
+  }
+},
+{
+  "model": "webapp.posts",
+  "pk": 38,
+  "fields": {
+    "text": "dev",
+    "user": 4,
+    "image": "post_pics/images_EwdyMAS.jpeg",
+    "created_at": "2022-04-07T06:43:16.642Z"
+  }
+},
+{
   "model": "webapp.comment",
   "pk": 1,
   "fields": {
@@ -178,6 +348,90 @@
     "date_publication": "2022-03-10T10:05:17.192Z",
     "post": [
       1
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 2,
+  "fields": {
+    "text": "sdasdasdasd",
+    "user": 1,
+    "date_publication": "2022-03-12T15:34:54.088Z",
+    "post": [
+      6
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 3,
+  "fields": {
+    "text": "sadasd",
+    "user": 1,
+    "date_publication": "2022-04-06T07:26:16.391Z",
+    "post": [
+      5
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 4,
+  "fields": {
+    "text": "sadasd",
+    "user": 1,
+    "date_publication": "2022-04-06T07:27:47.996Z",
+    "post": [
+      5
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 5,
+  "fields": {
+    "text": "asdasdas",
+    "user": 1,
+    "date_publication": "2022-04-06T07:32:19.856Z",
+    "post": [
+      5
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 6,
+  "fields": {
+    "text": "asdasdasd",
+    "user": 3,
+    "date_publication": "2022-04-06T07:33:31.432Z",
+    "post": [
+      5
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 7,
+  "fields": {
+    "text": "njnjnsdsd",
+    "user": 3,
+    "date_publication": "2022-04-06T08:31:52.302Z",
+    "post": [
+      12
+    ]
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 8,
+  "fields": {
+    "text": "asdasd",
+    "user": 3,
+    "date_publication": "2022-04-06T08:52:05.424Z",
+    "post": [
+      17
     ]
   }
 }
