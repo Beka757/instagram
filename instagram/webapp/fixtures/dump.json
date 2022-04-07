@@ -434,5 +434,107 @@
       17
     ]
   }
+},
+{
+  "model": "webapp.comment",
+  "pk": 9,
+  "fields": {
+    "text": "sadas",
+    "user": 1,
+    "date_publication": "2022-04-07T10:15:37.005Z",
+    "post": [
+      4
+    ]
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 1,
+  "fields": {
+    "created_at": "2022-04-07T09:30:02.076Z",
+    "user": 1,
+    "publication": 11
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 2,
+  "fields": {
+    "created_at": "2022-04-07T09:30:07.525Z",
+    "user": 1,
+    "publication": 21
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 3,
+  "fields": {
+    "created_at": "2022-04-07T09:38:37.799Z",
+    "user": 1,
+    "publication": 33
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 4,
+  "fields": {
+    "created_at": "2022-04-07T09:42:22.076Z",
+    "user": 1,
+    "publication": 6
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 5,
+  "fields": {
+    "created_at": "2022-04-07T09:44:13.503Z",
+    "user": 1,
+    "publication": 5
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 6,
+  "fields": {
+    "created_at": "2022-04-07T09:45:31.703Z",
+    "user": 3,
+    "publication": 5
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 7,
+  "fields": {
+    "created_at": "2022-04-07T09:59:59.539Z",
+    "user": 3,
+    "publication": 33
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 8,
+  "fields": {
+    "created_at": "2022-04-07T10:04:31.502Z",
+    "user": 1,
+    "publication": 4
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 9,
+  "fields": {
+    "created_at": "2022-04-07T10:31:19.707Z",
+    "user": 1,
+    "publication": 3
+  }
+},
+{
+  "model": "webapp.like",
+  "pk": 10,
+  "fields": {
+    "created_at": "2022-04-07T10:44:21.735Z",
+    "user": 1,
+    "publication": 2
+  }
 }
 ]
