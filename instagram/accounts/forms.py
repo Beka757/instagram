@@ -53,7 +53,7 @@ class UserChangeForm(forms.ModelForm):
 class ProfileChangeForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user', 'subscriptions', 'likes']
+        exclude = ['user', 'subscriptions']
 
 
 class PasswordChangeForm(forms.ModelForm):

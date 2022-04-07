@@ -1,8 +1,8 @@
-from django.shortcuts import reverse, render, redirect
-from django.views.generic import CreateView, DetailView, UpdateView
-from webapp.forms import PostForm, PostLikeForm
-from webapp.models import Posts
-from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import reverse, render, redirect, get_object_or_404
+from django.views.generic import CreateView, DetailView
+from webapp.forms import PostForm
+from webapp.models import Posts, Like
 
 
 class PostDetailView(DetailView):
@@ -32,18 +32,17 @@ class PostCreateView(CreateView):
         return render(request, self.template_name, context={'form': form})
 
 
-class PostLikesView(UpdateView):
-    template_name = 'posts/detail_post.html'
-    form_class = PostLikeForm
-    model = get_user_model()
+class LikePost(LoginRequiredMixin, CreateView):
+    model = Like
 
     def get_success_url(self):
         return reverse('post_detail', kwargs={'pk': self.kwargs.get('pk')})
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(data=self.request.POST)
-        if form.is_valid():
-            user = self.request.user
-            user.profile.likes.add(self.kwargs.get('pk'))
-            return redirect(self.get_success_url())
-        return render(request, self.template_name, context={'form': form})
+        post_pk = kwargs.get('pk')
+        post = get_object_or_404(Posts, pk=post_pk)
+        Like.objects.get_or_create(
+            user=self.request.user,
+            publication=post
+        )
+        return redirect(self.get_success_url())

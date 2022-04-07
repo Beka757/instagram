@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from django.http import JsonResponse
+
 from webapp.models import Posts
 from rest_framework import viewsets, permissions
 from api_v1.serializers import PostSerializer

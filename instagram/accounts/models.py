@@ -20,7 +20,6 @@ class Profile(models.Model):
     subscriptions = models.ManyToManyField(
         get_user_model(), related_name='subscribers', verbose_name='Подписки', blank=True
     )
-    likes = models.ManyToManyField('webapp.Posts', related_name='profile_like', blank=True)
 
     def __str__(self):
         return f'{self.user.get_full_name()}'

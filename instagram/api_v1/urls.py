@@ -5,6 +5,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'posts', viewset=PostViewSet)
+
 app_name = 'api_v1'
 
 urlpatterns = [

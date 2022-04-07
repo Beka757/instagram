@@ -8,21 +8,34 @@
                                                                                      alt="">
                 <h5 class="card-title">{{ post.user.username }}</h5></a>
         </div>
-        <img class="post_image" src="{{ post.image.url }}" class="card-img-bottom" alt="...">
+        <img class="post_image" src="{{ post.image.url }}" alt="...">
         <div class="card-body">
             <div>
-                <form action="{% url 'like' post.pk %}" method="POST">
-                    {% csrf_token %}
-                    {% if post in request.user.profile.likes.all %}
-                        <button class="button" disabled type="submit"><img class="like"
-                                                                           src="{% static "image/like_red.png" %}"
-                                                                           alt="..."></button>
-                    {% else %}
-                        <button class="button" type="submit"><img class="like" src="{% static "image/like_white.png" %}"
-                                                                  alt="..."></button>
+                {% if request.user.is_authenticated %}
+                    <form action="{% url 'add_like' post.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if request.user.id in post.get_likes.all %}
+                            <button class="button" disabled type="submit"><img class="like"
+                                                                               src="{% static "image/like_red.png" %}"
+                                                                               alt="..."></button>
+                        {% else %}
+                            <button class="button" type="submit"><img class="like"
+                                                                      src="{% static "image/like_white.png" %}"
+                                                                      alt="..."></button>
+                        {% endif %}
+                    </form>
+                {% endif %}
+                <p>
+                    {% if post.likes_count %}
+                        <p>{{ post.likes_count }} отметок "Нравится"</p>
                     {% endif %}
-                </form>
-                <p>{{ post.profile_like.count|default:0 }} отметок "Нравится"</p>
+                {% for user_id in post.get_likes.all %}
+                    {% if user_id == request.user.id and post.likes_count %}
+                        <p>Нравится <b>Вам</b> {% if post.likes_count != 1 %}и ещё
+                            <b>{{ post.likes_count_with_user }}</b>{% endif %}</p>
+                    {% endif %}
+                {% endfor %}
+                </p>
             </div>
             <h5 class="card-title"></h5>
             <p class="card-text"><a class="user_pr"
