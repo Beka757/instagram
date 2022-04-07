@@ -2,14 +2,14 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from rest_framework.viewsets import GenericViewSet
 
-from webapp.models import Posts, Like
+from webapp.models import Posts, Like, Comment
 from rest_framework import viewsets, permissions, mixins
-from api_v1.serializers import PostSerializer, LikeSerializer
+from api_v1.serializers import PostSerializer, LikeSerializer, CommentSerializer
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 
 class UpdateOrDeletePermission(BasePermission):
-    message = 'Редактирование и удаление постов - только свои!'
+    message = 'Редактирование и удаление - только свои!'
 
     def has_object_permission(self, request, view, obj):
         if request.method in SAFE_METHODS:
@@ -49,3 +49,20 @@ class LikeViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, GenericView
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
     permission_classes = [permissions.IsAuthenticated]
+
+
+class CommentViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin,
+                     mixins.RetrieveModelMixin, mixins.UpdateModelMixin, GenericViewSet):
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.all()
+
+    def get_permissions(self):
+        if self.action == 'create':
+            permission_classes = [permissions.IsAuthenticated]
+        elif self.action == 'retrieve':
+            permission_classes = [permissions.AllowAny]
+        elif self.action == 'update' or self.action == 'partial_update' or self.action == 'destroy':
+            permission_classes = [UpdateOrDeletePermission]
+        else:
+            permission_classes = [permissions.IsAdminUser]
+        return [permission() for permission in permission_classes]

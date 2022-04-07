@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from webapp.models import Posts, Like
+from webapp.models import Posts, Like, Comment
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -15,3 +15,12 @@ class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ['id', 'user', 'publication']
+        read_only_fields = ['id']
+
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Comment
+        fields = ['id', 'text', 'user', 'post', 'date_publication']
+        read_only_fields = ['id', 'date_publication']
