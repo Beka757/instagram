@@ -1,14 +1,15 @@
 from rest_framework.views import APIView
 from django.http import JsonResponse
+from rest_framework.viewsets import GenericViewSet
 
-from webapp.models import Posts
-from rest_framework import viewsets, permissions
-from api_v1.serializers import PostSerializer
+from webapp.models import Posts, Like
+from rest_framework import viewsets, permissions, mixins
+from api_v1.serializers import PostSerializer, LikeSerializer
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 
 class UpdateOrDeletePermission(BasePermission):
-    message = 'Редактирование и удаление - только свои!'
+    message = 'Редактирование и удаление постов - только свои!'
 
     def has_object_permission(self, request, view, obj):
         if request.method in SAFE_METHODS:
@@ -42,3 +43,9 @@ class LogoutView(APIView):
         if user.is_authenticated:
             user.auth_token.delete()
         return JsonResponse({'status': 'OK'})
+
+
+class LikeViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, GenericViewSet):
+    serializer_class = LikeSerializer
+    queryset = Like.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
