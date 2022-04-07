@@ -14,4 +14,3 @@ class Comment(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comment_user', verbose_name='Пользователи')
     post = models.ManyToManyField('webapp.Posts', related_name='comment_post', blank=True, verbose_name='Пост')
     date_publication = models.DateTimeField(auto_now_add=True, verbose_name='Время публикации')
-
