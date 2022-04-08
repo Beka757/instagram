@@ -5,16 +5,7 @@ from rest_framework.viewsets import GenericViewSet
 from webapp.models import Posts, Like, Comment
 from rest_framework import viewsets, permissions, mixins
 from api_v1.serializers import PostSerializer, LikeSerializer, CommentSerializer
-from rest_framework.permissions import BasePermission, SAFE_METHODS
-
-
-class UpdateOrDeletePermission(BasePermission):
-    message = 'Редактирование и удаление - только свои!'
-
-    def has_object_permission(self, request, view, obj):
-        if request.method in SAFE_METHODS:
-            return True
-        return obj.user == request.user
+from api_v1.permissions import UpdateOrDeletePermission
 
 
 class PostViewSet(viewsets.ModelViewSet, UpdateOrDeletePermission):
